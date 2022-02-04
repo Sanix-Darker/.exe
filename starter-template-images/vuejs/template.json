@@ -1,0 +1,12 @@
+{
+  "id": "vuejs",
+  "name": "VueJS",
+  "description": "VueJS using Vite",
+  "tags": [
+    "nodejs",
+    "npm",
+    "yarn",
+    "vue",
+    "vuejs"
+  ]
+}

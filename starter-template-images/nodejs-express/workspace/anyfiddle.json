@@ -1,0 +1,10 @@
+{
+  "openFiles": [
+      "index.js"
+  ],
+  "defaultCommand": "npm start",
+  "port": 3000,
+  "preview": true,
+  "autorun": true,
+  "autoReload": true
+}

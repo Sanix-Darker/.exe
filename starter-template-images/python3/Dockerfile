@@ -1,0 +1,3 @@
+FROM ghcr.io/anyfiddle/templates/base-python3
+
+COPY --chown=anyfiddle ./workspace /home/anyfiddle/project

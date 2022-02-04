@@ -1,0 +1,13 @@
+{
+  "openFiles": [
+      "index.html",
+      "script.js",
+      "style.css"
+  ],
+  "selectedFile": "index.html",
+  "defaultCommand": "serve",
+  "port": 5000,
+  "preview": true,
+  "autorun": true,
+  "autoReload": true
+}

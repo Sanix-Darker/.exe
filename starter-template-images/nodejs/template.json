@@ -1,0 +1,12 @@
+{
+  "id": "nodejs",
+  "name": "NodeJS",
+  "description": "NodeJS version 14.x with npm and yarn",
+  "tags": [
+    "nodejs",
+    "npm",
+    "yarn",
+    "javascript",
+    "typescript"
+  ]
+}

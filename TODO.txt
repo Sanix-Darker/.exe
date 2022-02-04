@@ -1,0 +1,24 @@
+- a github action that will be trigger for a specific change on a type file
+   input_code.go , .js, .py and the output will go on output and will be printed in a file
+
+https://stackoverflow.com/questions/58696291/how-to-trigger-a-github-action-job-or-workflow-based-on-modified-file-or-directo
+
+
+- a web extension that could simulate a terminal console for executing the code and then get the output result
+
+
+- the user has to fork the initial repo first
+- then create/generate a github-token tht will be added to the extension
+
+
+So basically, the web extension will be doing http calls to the github api itself for it to update the forked repo(with the input code and the runtime file that will contain the runner itself), that will trigger the github action that will execute the code and update the output file (during this process, the fetch will be looping on 5s to get the output file content) then the result will be print.
+
+For a specific runtime it should be an infinite loop with a timeout of the last executed code, so that we don't start a github action each time we want to run a sngle code., if the runtime change, then we build the new runtime in the same running github action instance and we test the code
+
+Build this widget with preact and add it at the bottom of each preview of code, so that, the url could be use to get the raw of the source code we're seeing
+
+
+Because this is happening inside github, we will never get a weird error on cross site requests etc...
+
+
+Optionnally, we can use this for live feedback : https://github.com/hasura/comment-progress

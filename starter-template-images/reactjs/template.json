@@ -1,0 +1,12 @@
+{
+  "id": "reactjs",
+  "name": "ReactJS",
+  "description": "React app using Vite",
+  "tags": [
+    "nodejs",
+    "npm",
+    "yarn",
+    "reactjs",
+    "react"
+  ]
+}

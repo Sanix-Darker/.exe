@@ -1,0 +1,9 @@
+{
+  "id": "clang",
+  "name": "C",
+  "description": "C with gcc",
+  "tags": [
+    "c",
+    "gcc"
+  ]
+}

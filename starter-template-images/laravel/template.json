@@ -1,0 +1,12 @@
+{
+  "id": "laravel",
+  "name": "Laravel",
+  "description": "Laravel framework for PHP with composer",
+  "tags": [
+    "laravel",
+    "laravel php",
+    "laravel framework",
+    "php",
+    "composer"
+  ]
+}

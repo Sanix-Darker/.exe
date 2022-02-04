@@ -1,0 +1,11 @@
+{
+  "openFiles": [
+	  "templates/default.html.twig",
+	  "src/Controller/DefaultController.php",
+    "config/routes.yaml"
+  ],
+  "defaultCommand": "symfony server:start --no-tls",
+  "port": 8000,
+  "preview": true,
+  "autorun": true
+}

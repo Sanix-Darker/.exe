@@ -1,0 +1,12 @@
+{
+  "id": "angular",
+  "name": "Angular",
+  "description": "Angular bootstrapped using Angular cli",
+  "tags": [
+    "angular",
+    "angularjs",
+    "nodejs",
+    "npm",
+    "yarn"
+  ]
+}

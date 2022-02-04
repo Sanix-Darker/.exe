@@ -1,0 +1,12 @@
+{
+  "id": "csharp",
+  "name": "C#",
+  "description": "C# with .NET Core",
+  "tags": [
+    "C#",
+    "csharp",
+    "dotnet",
+    ".net",
+    ".net core"
+  ]
+}

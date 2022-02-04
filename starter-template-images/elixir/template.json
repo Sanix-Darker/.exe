@@ -1,0 +1,10 @@
+{
+  "id": "elixir",
+  "name": "Elixir",
+  "description": "Elixir version 1.10.3 with Erlang/OTP platform",
+  "tags": [
+    "elixir",
+    "elixir-lang",
+    "erlang"
+  ]
+}

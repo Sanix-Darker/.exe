@@ -1,0 +1,6 @@
+{
+  "openFiles": [
+    "main.exs"
+  ],
+  "defaultCommand": "elixir main.exs"
+}
