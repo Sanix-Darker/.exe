@@ -4,10 +4,15 @@ on: push
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@master
-        run: |
-            echo Hello
+    defaults:
+      run:
+        working-directory: ./.github/workflows/one
 
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: running bash script locally
+        shell: bash
+        run: |
+            ./run.sh
