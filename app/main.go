@@ -45,6 +45,7 @@ func main() {
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/api/v1/execute", executeHandler)
+	mux.HandleFunc("/api/v1/runtimes", runtimesHandler)
 
 	err := http.ListenAndServe(":4321", mux)
 	log.Fatal(err)
@@ -75,6 +76,31 @@ func returnHttpSuccess(w http.ResponseWriter, resp string, status int) {
 
 	out, _ := json.Marshal(&succR.Run)
 	w.Write(out)
+}
+
+func runtimesHandler(w http.ResponseWriter, req *http.Request) {
+
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Content-Type", "application/json")
+
+	switch req.Method {
+	case "GET":
+		req, err := http.NewRequest("GET", pistonUrl+"/runtimes", nil)
+
+		client := &http.Client{}
+		resp, err := client.Do(req)
+		if err != nil {
+			log.Panic(err)
+		}
+		defer resp.Body.Close()
+
+		body, _ := ioutil.ReadAll(resp.Body)
+
+		w.WriteHeader(resp.StatusCode)
+		w.Write(body)
+	default:
+		returnHttpError(w, "Your payload/method is not good !", http.StatusInternalServerError)
+	}
 }
 
 func executeHandler(w http.ResponseWriter, req *http.Request) {
@@ -112,8 +138,9 @@ func executeHandler(w http.ResponseWriter, req *http.Request) {
 			"stdin": "` + code.Stdin + `",
 			"encoding": "utf-8",
 			"compile_timeout": 10000,
-			"run_timeout": 10000
+			"run_timeout": 2500
 		}`)
+
 		req, err := http.NewRequest("POST", pistonUrl+"/execute", bytes.NewBuffer(payload))
 		req.Header.Set("Content-Type", "application/json")
 
