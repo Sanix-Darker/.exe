@@ -27,3 +27,21 @@ Optionnally, we can use this for live feedback : https://github.com/hasura/comme
 Faire un Dockerfile pour la partie cli et le entrypoint c'est l'execution du cli lui meme
 cli/index.js -u http://127.0.0.1:2000 ppman install $(cat runtimes.txt | tr , " ")
 
+Exemple of payload to send to piston
+{
+    "name": "while",
+    "language": "python",
+    "version": "3.9.4",
+    "files": [
+        {
+            "name": "print_code.py",
+            "content": "print(\"Hello there !\")"
+        }
+    ],
+    "stdin": "000",
+    "args": ["1", "2", "3"],
+    "encoding": "utf-8",
+    "compile_timeout": 10000,
+    "run_timeout": 3000
+}
+
