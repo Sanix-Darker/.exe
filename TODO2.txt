@@ -1,0 +1,12 @@
+- get installed runtimes from go server
+- build the docker image for d-exe
+
+- buy and deploy d-exe.co (with fail-2-ban)on my vps
+
+- create the github-action that will watch for a commit on the main then take the content of the file 'code', 'name', ..... then build the payload and send that to d-exe, get responses 'stdout',... and commit that as files
+- create the demo test project that everyone is going to fetch
+- a user should
+
+
+# next step
+- try some fetch calls from devTools console from github.com to commit/push on the repo forked, that will then trigger the github action that will make appropriate calls then try to get the content of the file
