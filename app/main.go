@@ -23,20 +23,6 @@ type ErrResp struct {
 	Message string `json:"message"`
 }
 
-type RunPayload struct {
-	Stdout string `json:"stdout"`
-	Stderr string `json:"stderr"`
-	Code   int    `json:"code"`
-	Signal string `json:"signal"`
-	Output string `json:"output"`
-}
-
-type SuccResp struct {
-	Run     RunPayload `json:"run"`
-	Lang    string     `json:"lang"`
-	Version string     `json:"version"`
-}
-
 var pistonUrl = "http://0.0.0.0:2000/api/v2"
 
 func main() {
@@ -64,20 +50,6 @@ func returnHttpError(w http.ResponseWriter, resp string, status int) {
 	w.Write(out)
 }
 
-func returnHttpSuccess(w http.ResponseWriter, resp string, status int) {
-	var succR SuccResp
-
-	w.WriteHeader(status)
-
-	err := json.Unmarshal([]byte(resp), &succR)
-	if err != nil {
-		log.Panic(err)
-	}
-
-	out, _ := json.Marshal(&succR.Run)
-	w.Write(out)
-}
-
 func runtimesHandler(w http.ResponseWriter, req *http.Request) {
 
 	w.Header().Set("Access-Control-Allow-Origin", "*")
@@ -95,7 +67,6 @@ func runtimesHandler(w http.ResponseWriter, req *http.Request) {
 		defer resp.Body.Close()
 
 		body, _ := ioutil.ReadAll(resp.Body)
-
 		w.WriteHeader(resp.StatusCode)
 		w.Write(body)
 	default:
@@ -138,7 +109,7 @@ func executeHandler(w http.ResponseWriter, req *http.Request) {
 			"stdin": "` + code.Stdin + `",
 			"encoding": "utf-8",
 			"compile_timeout": 10000,
-			"run_timeout": 2500
+			"run_timeout": 2999
 		}`)
 
 		req, err := http.NewRequest("POST", pistonUrl+"/execute", bytes.NewBuffer(payload))
@@ -152,9 +123,9 @@ func executeHandler(w http.ResponseWriter, req *http.Request) {
 		defer resp.Body.Close()
 
 		body, _ := ioutil.ReadAll(resp.Body)
-		returnHttpSuccess(w, string(body), resp.StatusCode)
-
+		w.WriteHeader(resp.StatusCode)
+		w.Write(body)
 	default:
-		returnHttpError(w, "Your payload is not good !", http.StatusInternalServerError)
+		returnHttpError(w, "Your payload/route is not good !", http.StatusInternalServerError)
 	}
 }
