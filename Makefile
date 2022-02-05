@@ -7,6 +7,10 @@ upd:
 down:
 	docker-compose down
 
+# build piston cli docker image
+build-piston-cli:
+	cd piston_cli && docker build -t piston_cli:latest -f Dockerfile .
+
 # to run the installation
 # make install-runtimes IP="http://0.0.0.0:2000"
 install-runtimes:
