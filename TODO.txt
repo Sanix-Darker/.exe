@@ -22,3 +22,8 @@ Because this is happening inside github, we will never get a weird error on cros
 
 
 Optionnally, we can use this for live feedback : https://github.com/hasura/comment-progress
+
+
+Faire un Dockerfile pour la partie cli et le entrypoint c'est l'execution du cli lui meme
+cli/index.js -u http://127.0.0.1:2000 ppman install $(cat runtimes.txt | tr , " ")
+

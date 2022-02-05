@@ -1,0 +1,22 @@
+version: '3.2'
+
+services:
+    piston_api:
+        image: ghcr.io/engineer-man/piston
+        container_name: piston_api
+        restart: on-failure
+        ports:
+            - 2000:2000
+        volumes:
+            - ./volumes/piston:/piston
+        tmpfs:
+            - /piston/jobs:exec
+            - /piston/tmp:exec
+
+    .exe:
+        build: .
+        container_name: .exe
+        restart: on-failure
+        ports:
+            - 4321:4321
+
