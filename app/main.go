@@ -23,7 +23,7 @@ type ErrResp struct {
 	Message string `json:"message"`
 }
 
-var pistonUrl = "http://0.0.0.0:2000/api/v2"
+var pistonUrl = "http://piston_api:2000/api/v2"
 
 func main() {
 	fmt.Println("[-] .exe started at :4321")

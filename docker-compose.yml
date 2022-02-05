@@ -1,4 +1,4 @@
-version: '3.2'
+version: '3.9'
 
 services:
     piston_api:
@@ -13,10 +13,9 @@ services:
             - /piston/jobs:exec
             - /piston/tmp:exec
 
-    .exe:
-        build: .
-        container_name: .exe
+    d-exe:
+        build: app/
+        container_name: d-exe
         restart: on-failure
         ports:
             - 4321:4321
-
